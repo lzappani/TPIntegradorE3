@@ -1,65 +1,71 @@
 package g7l;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-@Data
+@RequiredArgsConstructor @AllArgsConstructor
 public class Partido {
-
     // Atributos
     @NonNull
-    Equipo equipo1;
-    @NonNull
-    Equipo equipo2;
-    @NonNull
-    int golesEquipo1;
-    @NonNull
-    int golesEquipo2;
+    Set<Equipo> equipos = new HashSet<>(2);
+    HashMap<Equipo, Integer> goles = new HashMap<>();
 
+    public Partido(@NonNull Equipo equipo1, @NonNull Equipo equipo2, int golesEquipo1, int golesEquipo2) {
+        this.equipos.add(equipo1);
+        this.equipos.add(equipo2);
+        this.goles.put(equipo1, golesEquipo1);
+        this.goles.put(equipo2, golesEquipo2);
+    }
+
+    public Partido(@NonNull Equipo equipo1, @NonNull Equipo equipo2) {
+        this.equipos.add(equipo1);
+        this.equipos.add(equipo2);
+    }
 
     // Este método devuelve el estatus del equipo usado como argumento (GANADOR o PERDEDOR), o EMPATE si es empate
     public ResultadoEnum resultado(Equipo equipo) {
         ResultadoEnum resultado = null;
-        if (equipo.equals(this.equipo1) || equipo.equals(this.equipo2)) {
-            if (this.golesEquipo1 == this.golesEquipo2) {
+        if (this.equipos.contains(equipo)) {
+            Equipo otroEquipo = this.equipos.stream().
+                    filter(i -> !i.equals(equipo)).
+                    findFirst().
+                    orElse(null);
+            if (Objects.equals(this.goles.get(equipo), this.goles.get(otroEquipo))) {
                 resultado = ResultadoEnum.EMPATE;
-            } else if (this.golesEquipo1 > this.golesEquipo2) {
-                resultado = equipo.equals(this.equipo1) ? ResultadoEnum.GANADOR : ResultadoEnum.PERDEDOR;
+            } else if (this.goles.get(equipo) > this.goles.get(otroEquipo)) {
+                resultado = ResultadoEnum.GANADOR;
             } else {
-                resultado = equipo.equals(this.equipo1) ? ResultadoEnum.PERDEDOR : ResultadoEnum.GANADOR;
+                resultado = ResultadoEnum.PERDEDOR;
             }
         }
         return resultado;
     }
 
 
-    // Este método compara si los equipos usados como argumento coinciden con los del partido
-    public boolean compararPartido(Equipo equipo1, Equipo equipo2) {
-        boolean a = this.equipo1.equals(equipo1);
-        boolean b = this.equipo2.equals(equipo2);
-        boolean c = this.equipo1.equals(equipo2);
-        boolean d = this.equipo2.equals(equipo1);
-        return (a && b) || (c && d);
-    }
+    // Sobrescribimos métodos
 
-
-    // Sobreescribimos estos métodos para poder comparar Partidos.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Partido partido)) return false;
-        return equipo1.equals(partido.equipo1) && equipo2.equals(partido.equipo2);
+        return equipos.equals(partido.equipos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(equipo1, equipo2);
+        return Objects.hash(equipos);
     }
 
     @Override
     public String toString() {
-        return equipo1.getNombre() + " : " + equipo2.getNombre();
+        StringBuilder result = new StringBuilder();
+        for (Equipo equipo : equipos) {
+            result.append(equipo.toString()).append(" : ");
+        }
+        return  result.substring(0, result.length() - 3);
     }
 }

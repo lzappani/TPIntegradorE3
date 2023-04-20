@@ -53,28 +53,28 @@ INSERT INTO Resultados (id_fase, id_ronda, equipo_1, goles_equipo_1, goles_equip
 
 INSERT INTO Pronosticos (participante, id_fase, id_ronda, equipo_1, equipo_2, resultado) VALUES
 ('Mariana', 1, 1, 'Argentina', 'Arabia Saudita', 'Gana1'),
-('Mariana', 1, 1, 'Polonia',  'México', 'Empata'),
-('Mariana', 1, 2, 'Argentina', 'México', 'Gana1'),
-('Mariana', 1, 2, 'Arabia Saudita', 'Polonia', 'Gana2'),
+('Mariana', 1, 1, 'Polonia',  'México', 'Empata'), --1
+('Mariana', 1, 2, 'Argentina', 'México', 'Gana1'), --1
+('Mariana', 1, 2, 'Arabia Saudita', 'Polonia', 'Gana2'), --1
 ('Mariana', 1, 3, 'Argentina', 'Polonia', 'Empata'),
 ('Mariana', 1, 3, 'Arabia Saudita', 'Mexico', 'Empata'),
 ('Mariana', 2, 1, 'Argentina', 'Arabia Saudita', 'Gana1'),
-('Mariana', 2, 1, 'Polonia', 'México', 'Empata'),
-('Mariana', 2, 2, 'Argentina', 'México', 'Gana1'),
-('Mariana', 2, 2, 'Arabia Saudita', 'Polonia', 'Gana2'),
+('Mariana', 2, 1, 'Polonia', 'México', 'Empata'), --1
+('Mariana', 2, 2, 'Argentina', 'México', 'Gana1'), --1
+('Mariana', 2, 2, 'Arabia Saudita', 'Polonia', 'Gana2'), --1
 ('Mariana', 2, 3, 'Argentina', 'Polonia', 'Empata'),
 ('Mariana', 2, 3, 'Arabia Saudita', 'Mexico', 'Empata'),
 ('Pedro', 1, 1, 'Argentina', 'Arabia Saudita', 'Gana1'),
-('Pedro', 1, 1, 'Polonia',  'México', 'Empata'),
+('Pedro', 1, 1, 'Polonia',  'México', 'Empata'), --1
 ('Pedro', 1, 2, 'Argentina', 'México', 'Gana2'),
-('Pedro', 1, 2, 'Arabia Saudita', 'Polonia', 'Gana2'),
+('Pedro', 1, 2, 'Arabia Saudita', 'Polonia', 'Gana2'), --1
 ('Pedro', 1, 3, 'Argentina', 'Polonia', 'Empata'),
 ('Pedro', 1, 3, 'Arabia Saudita', 'Mexico', 'Gana1'),
 ('Pedro', 2, 1, 'Argentina', 'Arabia Saudita', 'Gana1'),
-('Pedro', 2, 1, 'Polonia', 'México', 'Empata'),
-('Pedro', 2, 2, 'Argentina', 'México', 'Gana1'),
+('Pedro', 2, 1, 'Polonia', 'México', 'Empata'), --1
+('Pedro', 2, 2, 'Argentina', 'México', 'Gana1'), --1
 ('Pedro', 2, 2, 'Arabia Saudita', 'Polonia', 'Empata'),
 ('Pedro', 2, 3, 'Argentina', 'Polonia', 'Empata'),
-('Pedro', 2, 3, 'Arabia Saudita', 'Mexico', 'Gana2');
+('Pedro', 2, 3, 'Arabia Saudita', 'Mexico', 'Gana2'); --1
 
 
