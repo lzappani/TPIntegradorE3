@@ -64,7 +64,7 @@ public class Calculadora {
                 if (goles2 <0) throw new NumberFormatException();
             }
             catch (NumberFormatException nfe) {
-                System.out.printf("Error en algun campo en la linea %d de resultados.", i);
+                System.out.printf("Error en algún campo en la linea %d de resultados.", i);
                 System.exit(1);
             }
 
@@ -105,7 +105,7 @@ public class Calculadora {
             String[] linea = pronostico.get(i).split(",");  // Aislamos la línea
 
             if (linea.length != 7) {
-                System.out.printf("Error en el número de campos en la linea %d de pronosticos.", i);
+                System.out.printf("Error en el número de campos en la linea %d de pronósticos.", i);
                 System.exit(1);
             }
 
@@ -127,7 +127,7 @@ public class Calculadora {
                 e2 = linea[6];
             }
             catch (NumberFormatException nfe) {
-                System.out.printf("Error en algun campo en la linea %d de pronosticos.", i);
+                System.out.printf("Error en algún campo en la linea %d de pronósticos.", i);
                 System.exit(1);
             }
 
