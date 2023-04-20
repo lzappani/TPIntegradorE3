@@ -16,13 +16,17 @@ public class Equipo {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Equipo)) return false;
-        Equipo equipo = (Equipo) o;
+        if (!(o instanceof Equipo equipo)) return false;
         return nombre.equals(equipo.nombre);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(nombre);
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }
