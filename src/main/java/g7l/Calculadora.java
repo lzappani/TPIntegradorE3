@@ -181,7 +181,7 @@ public class Calculadora {
 
     // Método que devuelve un hashmap de puntajes
     // Utiliza resultados, pronósticos y el vector de puntos
-    private static HashMap<String, Integer> getPuntaje(
+    public static HashMap<String, Integer> getPuntaje(
             HashMap<Integer, HashMap<Integer, HashMap<Integer, Partido>>> resultados,
             HashMap<String, HashMap<Integer, Pronostico>> pronosticos,
             int[] puntos) {
